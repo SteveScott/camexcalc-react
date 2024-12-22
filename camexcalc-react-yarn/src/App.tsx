@@ -49,8 +49,8 @@ function App() {
   const handleShutterSpeedChange = (event: Event, newValue: number | number[]) => {
     setShutterSpeed(newValue as number);
   };
-  const handleGnChange = (event: Event, newValue: number | number[]) => {
-    setGn(newValue as number);
+  const handleGnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGn(Number(event.target.value));
   };
   return (
     <div className="App">
@@ -144,7 +144,7 @@ function App() {
                 <TextField
                   className="NumberDisplay"
                   id="GN"
-                  value="0"
+                  value={gn}
                   type="number"
                   onChange={handleGnChange}
                 />
