@@ -13,7 +13,6 @@ function scale (x: number) {
 function App() {
   const isoValues = [3, 7, 12, 25, 50, 100, 200, 400, 800, 1600, 3200];
   const isoMarks = isoValues.map((value) => ({value, label: value.toString()}));
-
   const fstopVlaues = [ 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16, 22, 32, 45, 64];
   const fstopMarks = fstopVlaues.map((value) => ({value, label:value.toString()}));
   const shutterSpeedValues = [1/200, 1/1000, 1/500, 1/250, 1/125, 1/60, 1/30, 1/15, 1/8, 1/4, 1/2, 1, 2, 4, 8, 15, 30];
@@ -64,18 +63,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="row">
+          <h1>Camera Exposure Computer</h1>
+        </div>
         //Fstop, shutter speed, iso, GN, EV
         <div className="row">
           <div className="col-sm-12 CalculationDiv">
@@ -101,15 +91,16 @@ function App() {
               <div className="hidden-xs col-sm-2 col-md-2"></div>
               <div className="col-xs-8 col-sm-8 col-md-6">
                 <Slider
-                  className="w-full"
                   id="iso-slider"
+                  className="w-full"
                   min = {0}
                   max = {isoValues.length - 1}
                   step={1}
                   value={[isoIndex]}
                   onChange={handleIsoChange}
                 />
-                <div className="flex justify-between text-xs text-gray-500">
+                </div>
+                <div className="col-xs-8 col-sm-8 col-md=6 flex justify-between text-xs text-gray-500">
                   {isoValues.map((value, index) => (
                     <span 
                     key={value}
